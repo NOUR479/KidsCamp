@@ -143,11 +143,10 @@ Conformément aux consignes pédagogiques, l'ensemble des outils d’assistance 
 ## 👩‍🎓 Informations sur le projet
 
 * **Projet :** KidsCamp
-* **Étudiante :** [Nom et prénom]
+* **Étudiante** :**Louhichi Nourelhouda
 * **Établissement :** ISSAT Sousse
 * **Cours :** Développement mobile
-* **Enseignante :** Mme Safa Ezzehi
-* **Année universitaire :** 2026–2027
+*
+
 
 ---
-*Projet pédagogique — Version à vérifier et compléter avec vos informations personnelles avant la soumission finale.*
