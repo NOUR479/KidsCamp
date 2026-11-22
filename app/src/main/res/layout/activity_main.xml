@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8F4"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- En-tête -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="22dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="KidsCamp"
+                android:textColor="#E61171"
+                android:textSize="27sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFD1B5"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="☀ ÉTÉ"
+                android:textColor="#633D30"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!-- Bannière principale -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_kidscamp_hero"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LES VACANCES COMMENCENT !"
+                android:textColor="#FFE2EE"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Un été plein de découvertes 🌈"
+                android:textColor="#FFFFFF"
+                android:textSize="27sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Du sport, de la créativité et de nouvelles aventures pour chaque enfant."
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#FFFFFF"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp"
+                android:text="Prêts à explorer ? ✨"
+                android:textColor="#E61171"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Section de navigation -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="6dp"
+            android:text="Votre espace"
+            android:textColor="#302522"
+            android:textSize="23sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tout le camp en quelques gestes."
+            android:textColor="#796A64"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Carte ateliers -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_kidscamp_card"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨  ⚽  🤖"
+                android:textSize="27sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Les ateliers"
+                android:textColor="#302522"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Explorez les activités, les horaires et les places disponibles."
+                android:textColor="#796A64"
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/btnWorkshops"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#E61171"
+                android:text="Découvrir les ateliers"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Carte enfants -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_kidscamp_card"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧒  👧  💛"
+                android:textSize="27sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Les petits campeurs"
+                android:textColor="#302522"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Gérez les profils et retrouvez les inscriptions de chaque enfant."
+                android:textColor="#796A64"
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/btnChildren"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#367C5B"
+                android:text="Gérer les enfants"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Carte facturation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_kidscamp_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧾  💰  🌟"
+                android:textSize="27sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Le budget familial"
+                android:textColor="#302522"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Consultez le détail des frais et la réduction fratrie."
+                android:textColor="#796A64"
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/btnInvoices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#D98936"
+                android:text="Voir la facturation"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:text="De beaux souvenirs commencent ici ☀"
+            android:textColor="#796A64"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+</ScrollView>
