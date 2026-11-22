@@ -1,152 +1,107 @@
-# KidsCamp ☀️
+<div align="center">
 
-Application mobile Android de gestion des activités d’un centre de vacances pour enfants.
+#  KidsCamp — Gestion d'Ateliers & Budget Familial
 
----
+**Application mobile Android native dédiée à la gestion des inscriptions d'un centre de vacances pour enfants.**
 
-##  Présentation
+[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
+[![Language](https://img.shields.io/badge/Language-Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Architecture](https://img.shields.io/badge/Architecture-MVC%20%2F%20Local--First-0288D1?style=for-the-badge)](#%EF%B8%8F-architecture-et-organisation-du-projet)
+[![Offline](https://img.shields.io/badge/Mode-100%25%20Hors--Ligne-FF6F00?style=for-the-badge)](#-stockage-local-et-confidentialité)
 
-**KidsCamp** permet de gérer les profils des enfants, de consulter les ateliers proposés, d’inscrire les enfants aux activités et de calculer automatiquement le budget familial. 
+*Projet réalisé dans le cadre du module **Développement Mobile** — **ISSAT Sousse***
 
-Ce projet a été réalisé dans le cadre du mini-projet du cours de développement mobile à l'ISSAT Sousse.
-
----
-
-##  Objectifs
-
-* **Simplifier** la gestion des enfants inscrits au centre.
-* **Consulter** les ateliers disponibles selon leur catégorie.
-* **Vérifier** strictement les règles d’inscription avant de réserver une activité.
-* **Visualiser** le coût détaillé des activités et le total familial avec remises.
+</div>
 
 ---
 
-##  Fonctionnalités
+## 📋 Table des matières
 
-* **Accueil :** Navigation fluide vers les différentes sections de l’application.
-* **Gestion des enfants :** Ajout, consultation, modification et suppression d’un profil enfant.
-* **Catalogue des ateliers :** Affichage des activités, recherche dynamique et filtrage par catégorie.
-* **Détail d’un atelier :** Consultation complète des informations d’une activité (horaires, âge requis, places, tarif).
-* **Inscriptions :** Inscription et annulation d’un enfant à un atelier.
-* **Validations métier :** 
-  * Contrôle de la tranche d’âge requise.
-  * Prévention des inscriptions en doublon.
-  * Vérification des places disponibles.
-  * Détection des conflits horaires.
-* **Budget familial :** Détail des tarifs par enfant, calcul du sous-total, application de la réduction fratrie et calcul du net à payer.
-* **Sauvegarde locale :** Persistance des profils et des inscriptions directement sur l’appareil.
+- [Présentation](#-présentation)
+- [Aperçu de l'application](#-aperçu-de-lapplication)
+- [Fonctionnalités et règles métier](#-fonctionnalités-et-règles-métier)
+- [Stack technique](#-stack-technique)
+- [Architecture et organisation du projet](#%EF%B8%8F-architecture-et-organisation-du-projet)
+- [Installation et lancement](#-installation-et-lancement)
+- [Jeu de données et scénarios de test](#-jeu-de-données-et-scénarios-de-test)
+- [Limitations connues et perspectives](#-limitations-connues-et-perspectives)
+- [Transparence et confidentialité](#-transparence-et-confidentialité)
+- [Auteure](#-auteure)
 
 ---
 
-##  Technologies utilisées
+## 🎯 Présentation
 
-* **Langage :** Kotlin
-* **Plateforme :** Android
-* **Interface utilisateur :** Layouts XML
-* **IDE :** Android Studio
-* **Stockage local :** `SharedPreferences` & sérialisation `JSON`
-* **Données des ateliers :** Jeu de données défini localement dans l’application
+**KidsCamp** est une application mobile Android conçue pour simplifier l'organisation quotidienne des parents et animateurs d'un centre de vacances. Elle centralise la gestion des profils des enfants, la découverte des ateliers créatifs, sportifs et scientifiques, le contrôle automatique des contraintes d'inscription et le calcul instantané du budget familial.
 
-> **Note :** L’application est conçue pour fonctionner 100 % hors ligne (localement), sans dépendre d’un serveur externe ou d’une API distante.
-
----
-
-##  Prérequis
-
-Pour ouvrir et exécuter ce projet, vous devez disposer de :
-* **Android Studio** (version récente recommandée).
-* Un **SDK Android** compatible avec la configuration du projet.
-* Un **émulateur Android (AVD)** ou un **appareil physique Android** (avec le débogage USB activé) pour effectuer les tests.
-
-*(Les versions exactes du SDK et les niveaux d'API minimums sont définis dans les fichiers `build.gradle` / `build.gradle.kts` du projet).*
+### Objectifs clés
+- **Centraliser** les profils des enfants (CRUD complet avec persistance locale).
+- **Faciliter la recherche** d'ateliers par mots-clés et par catégories (*Créativité*, *Sport*, *Sciences*).
+- **Sécuriser les inscriptions** grâce à un moteur de validation métier strict (âge, capacité, doublons, conflits horaires).
+- **Automatiser la facturation** avec calcul détaillé par enfant et application dynamique des remises fratrie.
 
 ---
 
-##  Installation et lancement
+## 📱 Aperçu de l'application
 
-1. **Cloner le dépôt** GitHub ou télécharger et extraire l'archive ZIP du projet :
-   ```bash
-   git clone https://github.com
-   ```
-2. Ouvrir **Android Studio**.
-3. Cliquer sur **Open** et sélectionner le dossier racine du projet (contenant `settings.gradle` ou `settings.gradle.kts`).
-4. Attendre la fin de la synchronisation **Gradle**.
-5. Connecter un appareil Android ou démarrer un émulateur.
-6. Cliquer sur le bouton **Run ▶** (ou appuyer sur `Shift + F10`) pour compiler et lancer l’application.
+| Écran d'accueil & Navigation | Gestion des Enfants (CRUD) | Catalogue & Inscriptions | Budget & Facturation |
+| :---: | :---: | :---: | :---: |
+| <img src="captures/screen_home.png" width="200" alt="Accueil"/> | <img src="captures/screen_children.png" width="200" alt="Enfants"/> | <img src="captures/screen_workshops.png" width="200" alt="Ateliers"/> | <img src="captures/screen_invoice.png" width="200" alt="Budget"/> |
+
+> *💡 Les captures d'écran authentiques sont disponibles dans le dossier [`captures/`](captures/).*
 
 ---
 
-##  Plan de tests
+## ✨ Fonctionnalités et règles métier
 
-Avant la livraison finale, les scénarios fonctionnels suivants doivent être validés :
+### 1. Gestion des petits campeurs (`ChildrenActivity`)
+- **Ajout, modification et suppression (CRUD)** des profils enfants (prénom, âge).
+- **Contrôles de saisie intégrés :** blocage des champs vides, validation de longueur minimale (≥ 2 caractères) et restriction de la tranche d'âge autorisée (**3 à 17 ans**).
+- **Intégrité des données :** la suppression d'un profil nettoie automatiquement ses inscriptions associées.
 
-| Scénario de test | Résultat attendu |
-| :--- | :--- |
-| Ajouter un enfant avec des informations valides | Le profil est créé et apparaît dans la liste. |
-| Ajouter un enfant avec un prénom vide ou un âge invalide | L’application bloque la saisie et refuse les données incorrectes. |
-| Inscrire un enfant à un atelier adapté à son âge | L’inscription est validée et enregistrée. |
-| Inscrire un enfant à un atelier incompatible avec son âge | L’inscription est refusée avec un message explicatif. |
-| Réinscrire le même enfant au même atelier | Le doublon est détecté et refusé. |
-| Inscrire un enfant à un atelier complet ou en conflit horaire | L’inscription est refusée. |
-| Fermer complètement puis relancer l’application | Les enfants et les inscriptions sauvegardés sont conservés. |
-| Annuler une inscription existante | Le nombre de places disponibles et la facture sont mis à jour. |
+### 2. Catalogue interactif & Inscriptions (`WorkshopsActivity`)
+- **Recherche dynamique en temps réel** (par titre d'atelier, catégorie ou jour) combinée à un **filtrage par catégorie**.
+- **Moteur de validation métier (4 règles strictes) :**
+  1. **Compatibilité d'âge :** vérifie que l'âge de l'enfant se situe dans l'intervalle `[minAge..maxAge]` de l'atelier.
+  2. **Anti-doublon :** empêche d'inscrire deux fois le même enfant à une même activité.
+  3. **Gestion de capacité :** bloque l'inscription lorsque le quota de places disponibles atteint `0`.
+  4. **Détection de conflits horaires :** empêche toute inscription si l'enfant participe déjà à un autre atelier sur le même créneau horaire et le même jour.
+- **Annulation d'inscription :** libère immédiatement une place et met à jour le récapitulatif financier.
 
-*(Les résultats détaillés et captures de chaque test sont consignés dans le rapport technique).*
+### 3. Calcul automatique du budget familial (`InvoiceActivity`)
+- Ventilation détaillée des coûts par enfant et par atelier réservé.
+- Calcul automatique du **sous-total**, application de la **réduction fratrie** selon le nombre d'enfants inscrits et affichage du **net à payer (en DT)**.
 
 ---
 
-##  Organisation du projet
+## 🛠️ Stack technique
 
-La structure principale du code source s'articule autour des composants suivants :
+| Composant | Technologie / Outil | Rôle dans le projet |
+| :--- | :--- | :--- |
+| **Langage** | Kotlin | Logique applicative, règles métier et gestion des événements |
+| **SDK & UI** | Android SDK / XML Layouts | Interfaces tactiles responsives et composants natifs (`AppCompat`) |
+| **Persistance** | `SharedPreferences` + JSON | Sauvegarde locale légère et sérialisation des listes |
+| **IDE & Build** | Android Studio / Gradle | Compilation, gestion des dépendances et tests sur émulateur/appareil |
+
+> **Architecture 100 % Local-First :** L'application ne requiert aucune connexion Internet, aucun serveur externe et aucune clé API, garantissant une disponibilité totale et des temps de réponse instantanés.
+
+---
+
+## 🗂️ Architecture et organisation du projet
 
 ```text
 app/src/main/
-├── java/com/.../kidscamp/
-│   ├── MainActivity.kt          # Écran d’accueil et menu principal
-│   ├── ChildrenActivity.kt      # Gestion CRUD des profils des enfants
-│   ├── WorkshopsActivity.kt     # Recherche, filtrage et inscriptions aux ateliers
-│   ├── InvoiceActivity.kt       # Calcul détaillé du budget familial et réductions
-│   ├── model/                   # Modèles de données (Child, Workshop, Registration)
+├── java/com/example/kidscamp/
+│   ├── MainActivity.kt          # Point d'entrée et navigation principale
+│   ├── ChildrenActivity.kt      # Gestion CRUD des profils enfants + validations
+│   ├── WorkshopsActivity.kt     # Recherche, filtrage et moteur d'inscription métier
+│   ├── InvoiceActivity.kt       # Calcul du budget familial, sous-total et remises
+│   ├── model/
+│   │   ├── Child.kt             # Modèle de données : Enfant (id, firstName, age)
+│   │   ├── Workshop.kt          # Modèle de données : Atelier (horaires, âge, capacité, prix)
+│   │   └── Registration.kt      # Modèle associatif : Inscription (childId, workshopId)
 │   └── data/
-│       └── KidsCampData.kt      # Gestion des données partagées et sauvegarde locale
+│       └── KidsCampData.kt      # Source de vérité unique, jeu de données et persistance JSON
 └── res/
-    ├── layout/                  # Fichiers d'interfaces graphiques XML
-    └── drawable/                # Ressources graphiques, icônes et arrière-plans
-```
-
----
-
-##  Données et confidentialité
-
-* Toutes les données de démonstration sont stockées localement sur l’appareil via `SharedPreferences`.
-* L’application ne nécessite aucune création de compte tiers ni connexion à un serveur distant.
-* **Confidentialité :** Aucune donnée personnelle réelle n'est utilisée dans le jeu de données de test ni dans les captures d’écran.
-
----
-
-##  Captures d’écran
-
-*(Ajouter dans le dossier `captures/` des captures d'écran authentiques de la version finale exécutée sur émulateur ou appareil réel).*
-
-| Écran d'accueil | Gestion des enfants | Catalogue des ateliers | Budget familial |
-| :---: | :---: | :---: | :---: |
-| ![Accueil](captures/accueil.png) | ![Enfants](captures/enfants.png) | ![Ateliers](captures/ateliers.png) | ![Facture](captures/budget.png) |
-
----
-
-## 🤖 Déclaration des aides
-
-Conformément aux consignes pédagogiques, l'ensemble des outils d’assistance utilisés durant le développement (y compris les outils d'intelligence artificielle) est déclaré en toute transparence dans le fichier [`DECLARATION_SOURCES.md`](DECLARATION_SOURCES.md). L'intégralité du code source et des règles métier est maîtrisée et explicable.
-
----
-
-## 👩‍🎓 Informations sur le projet
-
-* **Projet :** KidsCamp
-* **Étudiante** :**Louhichi Nourelhouda
-* **Établissement :** ISSAT Sousse
-* **Cours :** Développement mobile
-*
-
-
----
+    ├── layout/                  # Vues XML (activity_main, activity_children, etc.)
+    └── drawable/                # Cartes arrondies, styles de boutons et ressources graphiques
